@@ -3,7 +3,7 @@ import heroImg from "../assets/hero.png";
 
 const Hero = () => {
   return (
-    <section className="bg-gray-50 min-h-[85vh] flex items-center px-6">
+    <section className="bg-gradient-to-b from-gray-50 to-white min-h-[85vh] flex items-center px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
         {/* Left Content */}
         <div>

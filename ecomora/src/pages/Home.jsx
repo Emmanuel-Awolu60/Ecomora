@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../context/CartContext.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-import Hero from "../components/Hero.jsx";
+import Hero from "../components/Hero.jsx"; // ✅ imported Hero
 
 const Home = () => {
   const { addToCart } = useCart();
