@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx"; // ✅ Import Footer
 
 // Pages
 import Home from "./pages/Home.jsx";
@@ -16,7 +17,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6">
+      <div className="p-6 min-h-[calc(100vh-160px)]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 };

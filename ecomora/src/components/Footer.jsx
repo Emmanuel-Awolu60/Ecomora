@@ -1,24 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="border-t bg-white">
-      <div className="container py-8 flex flex-col md:flex-row justify-between items-center">
-        <div className="text-sm text-gray-500">
-          © {new Date().getFullYear()} Ecomora
+    <footer className="bg-gray-900 text-gray-200 py-12 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
+        {/* Logo & Description */}
+        <div className="text-center md:text-left">
+          <h1 className="text-2xl font-bold text-white mb-2">Ecomora</h1>
+          <p className="text-gray-400 max-w-xs">
+            Discover modern products with a touch of simplicity and style.
+          </p>
         </div>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <a className="text-sm hover:text-accent" href="#">
-            About
-          </a>
-          <a className="text-sm hover:text-accent" href="#">
-            Privacy
-          </a>
-          <a className="text-sm hover:text-accent" href="#">
+
+        {/* Navigation Links */}
+        <div className="flex flex-col space-y-2 text-center md:text-left">
+          <Link to="/" className="hover:text-blue-500 transition">
+            Home
+          </Link>
+          <Link to="/shop" className="hover:text-blue-500 transition">
+            Shop
+          </Link>
+          <Link to="/blog" className="hover:text-blue-500 transition">
+            Blog
+          </Link>
+          <Link to="/contact" className="hover:text-blue-500 transition">
             Contact
+          </Link>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex space-x-4">
+          <a href="#" className="hover:text-blue-500 transition">
+            🐦
+          </a>
+          <a href="#" className="hover:text-blue-500 transition">
+            📘
+          </a>
+          <a href="#" className="hover:text-blue-500 transition">
+            📸
           </a>
         </div>
       </div>
+
+      {/* Bottom */}
+      <div className="mt-8 text-center text-gray-500 text-sm">
+        &copy; {new Date().getFullYear()} Ecomora. All rights reserved.
+      </div>
     </footer>
   );
-}
+};
+
+export default Footer;
