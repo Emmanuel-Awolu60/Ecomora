@@ -1,56 +1,67 @@
-// src/components/BlogPreview.jsx
 import React from "react";
-import { Link } from "react-router-dom";
 
-const BlogPreview = () => {
+const Blog = () => {
+  // Example blog posts (replace with real data later)
   const posts = [
     {
       id: 1,
-      title: "The Future of E-commerce in 2025",
-      excerpt: "Discover the top trends shaping online shopping this year...",
-      link: "/blog",
+      title: "5 Tips for Minimalist Home Design",
+      date: "Sep 10, 2025",
+      snippet:
+        "Discover how to create a minimalist home that feels clean, open, and stylish...",
+      link: "/blog/minimalist-home-design",
     },
     {
       id: 2,
-      title: "5 Tips for a Smarter Shopping Experience",
-      excerpt:
-        "Learn how to save money and shop efficiently with these tips...",
-      link: "/blog",
+      title: "How to Choose the Perfect Chair",
+      date: "Sep 5, 2025",
+      snippet:
+        "Choosing the right chair can transform your space. Learn what to look for in comfort, style, and durability...",
+      link: "/blog/perfect-chair",
     },
     {
       id: 3,
-      title: "Why Minimalist Design Wins in Online Stores",
-      excerpt:
-        "A closer look at why simple design drives higher conversions...",
-      link: "/blog",
+      title: "Modern Lighting for Every Room",
+      date: "Aug 28, 2025",
+      snippet:
+        "Lighting sets the mood in your home. Explore modern lighting ideas that bring warmth and elegance...",
+      link: "/blog/modern-lighting",
+    },
+    {
+      id: 4,
+      title: "Organizing Your Desk Like a Pro",
+      date: "Aug 20, 2025",
+      snippet:
+        "Maximize productivity and aesthetics by keeping your desk organized with these simple tips...",
+      link: "/blog/desk-organization",
     },
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-          From Our Blog
-        </h2>
+    <section className="py-16 px-6 bg-gray-50 min-h-screen">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-900 text-center mb-10">
+          Our Blog
+        </h1>
 
-        {/* Blog Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Blog Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition"
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
             >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {post.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{post.excerpt}</p>
-              <Link
-                to={post.link}
-                className="text-blue-600 hover:text-blue-800 font-medium"
+              </h2>
+              <p className="text-gray-500 text-sm mb-4">{post.date}</p>
+              <p className="text-gray-600 mb-4">{post.snippet}</p>
+              <a
+                href={post.link}
+                className="text-blue-600 font-medium hover:underline"
               >
                 Read More →
-              </Link>
+              </a>
             </div>
           ))}
         </div>
@@ -59,4 +70,4 @@ const BlogPreview = () => {
   );
 };
 
-export default BlogPreview;
+export default Blog;
