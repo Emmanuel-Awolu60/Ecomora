@@ -4,94 +4,80 @@ import { useCart } from "../context/CartContext.jsx";
 
 const Navbar = () => {
   const { cart } = useCart();
-  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  const [isOpen, setIsOpen] = useState(false);
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="backdrop-blur-md bg-white/70 shadow-sm px-6 py-4 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-gray-800">
-          Ecomora
+    <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+      <Link to="/" className="text-2xl font-bold text-gray-800">
+        Ecomora
+      </Link>
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex space-x-6 items-center">
+        <Link to="/" className="text-gray-700 hover:text-blue-600">
+          Home
         </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="text-gray-700 hover:text-blue-600">
-            Home
-          </Link>
-          <Link to="/shop" className="text-gray-700 hover:text-blue-600">
-            Shop
-          </Link>
-          <Link to="/blog" className="text-gray-700 hover:text-blue-600">
-            Blog
-          </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-blue-600">
-            Contact
-          </Link>
-
-          <Link
-            to="/cart"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-          >
-            Cart ({totalItems})
-          </Link>
-
-          {/* Cart Icon */}
-          <Link to="/cart" className="relative">
-            <span className="text-gray-700 text-xl">🛒</span>
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs px-1.5 py-0.5 rounded-full">
-                {totalItems}
-              </span>
-            )}
-          </Link>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-gray-700 text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
+        <Link to="/shop" className="text-gray-700 hover:text-blue-600">
+          Shop
+        </Link>
+        <Link to="/blog" className="text-gray-700 hover:text-blue-600">
+          Blog
+        </Link>
+        <Link to="/contact" className="text-gray-700 hover:text-blue-600">
+          Contact
+        </Link>
+        <Link
+          to="/cart"
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
         >
-          {isOpen ? "✖" : "☰"}
-        </button>
+          Cart ({totalItems})
+        </Link>
       </div>
 
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden text-gray-700"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
+
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden mt-4 space-y-4 bg-white/90 backdrop-blur-md rounded-lg p-4 shadow">
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
           <Link
+            onClick={() => setMenuOpen(false)}
             to="/"
-            className="block text-gray-700 hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
+            className="py-2 text-gray-700 hover:text-blue-600 w-full text-center"
           >
             Home
           </Link>
           <Link
+            onClick={() => setMenuOpen(false)}
             to="/shop"
-            className="block text-gray-700 hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
+            className="py-2 text-gray-700 hover:text-blue-600 w-full text-center"
           >
             Shop
           </Link>
           <Link
+            onClick={() => setMenuOpen(false)}
             to="/blog"
-            className="block text-gray-700 hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
+            className="py-2 text-gray-700 hover:text-blue-600 w-full text-center"
           >
             Blog
           </Link>
           <Link
+            onClick={() => setMenuOpen(false)}
             to="/contact"
-            className="block text-gray-700 hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
+            className="py-2 text-gray-700 hover:text-blue-600 w-full text-center"
           >
             Contact
           </Link>
           <Link
+            onClick={() => setMenuOpen(false)}
             to="/cart"
-            className="block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            onClick={() => setIsOpen(false)}
+            className="py-2 bg-blue-600 text-white w-full text-center"
           >
             Cart ({totalItems})
           </Link>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa"; // ✅ React Icons
 
 const Footer = () => {
   return (
@@ -30,15 +31,15 @@ const Footer = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 text-2xl">
           <a href="#" className="hover:text-blue-500 transition">
-            🐦
+            <FaTwitter />
           </a>
           <a href="#" className="hover:text-blue-500 transition">
-            📘
+            <FaFacebookF />
           </a>
           <a href="#" className="hover:text-blue-500 transition">
-            📸
+            <FaInstagram />
           </a>
         </div>
       </div>
